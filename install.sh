@@ -1,4 +1,5 @@
 #! bin/sh
+apt update
 pkgs='certbot python3-certbot-nginx'
 install=false
 for pkg in $pkgs; do
