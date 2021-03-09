@@ -1,6 +1,6 @@
 #! bin/sh
 apt update
-pkgs='certbot python3-certbot-nginx'
+pkgs='certbot python3-certbot-nginx -y'
 install=false
 for pkg in $pkgs; do
   status="$(dpkg-query -W --showformat='${db:Status-Status}' "$pkg" 2>&1)"
