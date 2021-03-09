@@ -20,7 +20,7 @@ node {
     }
 
     stage("SSH Docker Container Run") {
-        def dockerRun = 'sudo docker run -d -p 80:80 -p 443:443 -v /home/ubuntu/letsencrypt:/etc/letsencrypt -v /home/ubuntu/nginx:/etc/nginx -v /home/ubuntu/log/nginx:/var/log/nginx --name ${IMAGE_NAME} ${HARBOR_URL}/${HARBOR_PROJECT}/${IMAGE_NAME}:latest'
+        def dockerRun = 'sudo docker run -d -p 80:80 -v /home/ubuntu/letsencrypt:/etc/letsencrypt -v /home/ubuntu/nginx:/etc/nginx -v /home/ubuntu/log/nginx:/var/log/nginx --name ${IMAGE_NAME} ${HARBOR_URL}/${HARBOR_PROJECT}/${IMAGE_NAME}:latest'
         def harboLogin = 'sudo docker login https://${HARBOR_URL} -u ${HARBOR_USER} -p ${HARBOR_PWD}'
         def dockerStop = 'sudo docker stop ${IMAGE_NAME} || true'
         def dockerRm = 'sudo docker rm ${IMAGE_NAME} || true'
